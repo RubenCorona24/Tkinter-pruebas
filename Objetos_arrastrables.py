@@ -1,3 +1,16 @@
+import tkinter as tk
+
+ventana = tk.Tk()
+ventana.title("Canvas con objetos arrastrables")
+
+canva = tk.Canvas(ventana, width=500, height=300, bg='blue')
+canva.pack()
+
+# Dibujar objetos
+rectangulo = canva.create_rectangle(50, 50, 150, 100, fill='green', outline='black', width=2)
+canva.create_oval(200, 50, 300, 150, fill='red', outline='black', width=3)
+canva.create_line(10, 200, 100, 200, fill='orange')
+canva.create_text(150, 50, text='APRENDIENDO CANVAS', fill='red', font=('Arial', 12, 'bold'), justify='center')
 # Segundo rectángulo arrastrable
 otro_rect = canva.create_rectangle(100, 100, 200, 200, fill='blue', tags='rectángulo')
 
