@@ -12,7 +12,7 @@ ventana = tk.Tk()
 
 #----FUNCIÓN PARA ABRIR ARCHIVO----
 def abrir_archivo():
-    filename = filedialog.asksaveasfilename(filetypes=[('Archivos de texto', '*.txt'), ('Todos los archivos', '*.*')])
+    filename = filedialog.askopenfilename(filetypes=[('Archivos de texto', '*.txt'), ('Todos los archivos', '*.*')])
     if filename:
         with open(filename, 'r') as file_obj:
             contenido = file_obj.read()
@@ -31,6 +31,6 @@ text_widget = tk.Text(ventana, wrap='word')  # Crear el campo de texto
 text_widget.pack(expand=True, fill='both')
 abrir_button = Button(ventana, text='ABRIR ARCHIVO', command=abrir_archivo)  # Crear el botón para ejecutar función
 abrir_button.pack(side='left')
-guardar_button = Button(ventana, text='ABRIR ARCHIVO', command=guardar_archivo)  # Crear el botón para ejecutar función
+guardar_button = Button(ventana, text='GUARDAR ARCHIVO', command=guardar_archivo)  # Crear el botón para ejecutar función
 guardar_button.pack(side='right')
 ventana.mainloop()
