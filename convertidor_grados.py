@@ -35,16 +35,16 @@ def mostrar_resultado(): #función para entradas
         entrada.delete(0,tk.END)
         entrada.insert(0, 'Valor Celcius')
         entrada.pack()
+label_resultado = Label(ventana, text="", font=("Arial", 12))
+label_resultado.pack()
 def calcular():  #Función para mostras resultados
     try:
         faren = float(entrada.get()) * (9/5) + 32
         celcius = (float(entrada.get()) - 32) * (5/9)
         if option.get() == 1:
-            label_muestra = Label(ventana,text=f'{entrada.get()} grados Fahrenheit a Celcius: {celcius}')
-            label_muestra.pack()
-        if option.get() == 2:
-            label_muestra = Label(ventana,text=f'{entrada.get()} grados Celcius a Fahrenheit: {faren}')
-            label_muestra.pack()
+            label_resultado.config(text=f'{entrada.get()} °F → {round(celcius, 2)} °C')
+        elif option.get() == 2:
+            label_resultado.config(text=f'{entrada.get()} °C → {round(faren, 2)} °F')
     except ValueError:
         messagebox.showerror('Error','Opción Inválida') #Message box de error
 
