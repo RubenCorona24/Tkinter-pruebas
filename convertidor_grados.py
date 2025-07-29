@@ -7,12 +7,12 @@ ventana = tk.Tk()
 ventana.title("CONVERTIDOR DE CELCIUS A Fahrenheit") #título en label
 ventana.geometry('900x600')
 title = Label(ventana,text='CONVERTIDOR CELCIUS-FAHRENHEIT',font=("Arial",12,'bold'),foreground='red')
-title.pack(side='top')
+title.pack(side='top',pady=10)
 option = IntVar()
-boton_check = Radiobutton(ventana,text='Celcius',variable=option,value=1)
-boton_check.pack()
-boton_check2 = Radiobutton(ventana,text='Fahrenheit',variable=option,value=2)
-boton_check2.pack()  #RadioButton para grados
+boton_check = Radiobutton(ventana,text='Obtener Celcius',variable=option,value=1)
+boton_check.pack(pady=5)
+boton_check2 = Radiobutton(ventana,text='Obtener Fahrenheit',variable=option,value=2)
+boton_check2.pack(pady=5)  #RadioButton para grados
 label_mostrar = Label(ventana)
 entrada = Entry()
 otro_label = Label(ventana)
@@ -25,7 +25,7 @@ def mostrar_resultado(): #función para entradas
         label_mostrar.config(text='Has elegido la opción de Celcius')
         label_mostrar.pack()
         entrada.delete(0, tk.END)
-        entrada.insert(0,'Valor Fahrenheit')
+        entrada.insert(0,'Valor en Fahrenheit')
         entrada.pack()
 
 
@@ -33,10 +33,10 @@ def mostrar_resultado(): #función para entradas
         label_mostrar.config(text='Has elegido la opción de Fahrenheit')
         label_mostrar.pack()
         entrada.delete(0,tk.END)
-        entrada.insert(0, 'Valor Celcius')
+        entrada.insert(0, 'Valor en Celcius')
         entrada.pack()
 label_resultado = Label(ventana, text="", font=("Arial", 12))
-label_resultado.pack()
+label_resultado.pack(pady=5)
 def calcular():  #Función para mostras resultados
     try:
         faren = float(entrada.get()) * (9/5) + 32
@@ -52,8 +52,8 @@ def calcular():  #Función para mostras resultados
 
 
 boton = tk.Button(ventana,text='MOSTRAR',command=mostrar_resultado)
-boton.pack()
+boton.pack(pady=5)
 boton_calcular= tk.Button(ventana,text='CALCULAR',command=calcular)
-boton_calcular.pack()  #Empacamos los botones
+boton_calcular.pack(pady=5)  #Empacamos los botones
 
 ventana.mainloop()
